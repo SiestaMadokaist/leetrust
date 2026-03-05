@@ -1,4 +1,4 @@
-use std::fs;
+use std::io::{self, Read};
 
 // 2x2 matrix represented as [[a, b], [c, d]]
 type Mat = [[u64; 2]; 2];
@@ -42,10 +42,14 @@ fn fib(n: u64) -> u64 {
 }
 
 fn main() {
-    let input = fs::read_to_string("problems/fib_matrix/input.txt")
-        .expect("Could not read input.txt");
+    let mut input = String::new();
+    io::stdin().read_to_string(&mut input).unwrap();
 
-    let n: u64 = input.trim().parse().expect("Expected a non-negative integer");
+    let mut lines = input.lines();
+    let t: usize = lines.next().unwrap().trim().parse().expect("Expected number of test cases");
 
-    println!("{}", fib(n));
+    for i in 1..=t {
+        let n: u64 = lines.next().unwrap().trim().parse().expect("Expected a non-negative integer");
+        println!("tc #{}: {}", i, fib(n));
+    }
 }

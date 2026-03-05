@@ -5,3 +5,7 @@ version = 4
 [[package]]
 name = "fib_matrix"
 version = "0.1.0"
+
+[[package]]
+name = "immutable_fib"
+version = "0.1.0"

@@ -25,14 +25,36 @@ Then add `input.txt` inside that directory and write your solution in `src/main.
 
 ## Running a problem
 
-Always run from the workspace root so the `input.txt` relative path resolves correctly.
+Solutions read from stdin. Redirect `input.txt` when running:
 
 ```bash
-cargo run -p fib_matrix
+cargo run -p fib_matrix < problems/fib_matrix/input.txt
+```
+
+To also capture output:
+
+```bash
+cargo run -p fib_matrix < problems/fib_matrix/input.txt > output.txt
+```
+
+## Input format convention
+
+```
+n
+<line 1>
+<line 2>
+...
+<line n>
+```
+
+Output is formatted as:
+
+```
+tc #1: <answer>
+tc #2: <answer>
+...
 ```
 
 ## Notes
 
-- Each problem reads input from `problems/<name>/input.txt`
-- Run commands from the workspace root
 - Apply modulo `10^9 + 7` for large number problems (already done in the Fibonacci example)
